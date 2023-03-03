@@ -1,0 +1,39 @@
+start:
+  x: 18
+  y: 3
+  z: 1
+  block: "heavy_weighted_pressure_plate"
+  holograms: # By default, these are positioned 2 blocks above the block
+    - "<red><bold>Parkour"
+    - "<GOLD>Step on the pressure plate to start"
+
+reset: # The position to teleport the player if the parkour is reset or stopped
+  x: 18
+  y: 3
+  z: 4
+
+end:
+  x: 140
+  y: 6
+  z: 34
+  block: "heavy_weighted_pressure_plate"
+  holograms: # By default, these are positioned 2 blocks above the block
+    - "<red><bold>Finish"
+    - "<GOLD>Step on the pressure plate to finish"
+
+checkpoints:
+  area-size: 2 # The size of the area around the checkpoint plate (this is squared for block size)
+  death-y: -10 # The Y coordinate of the death zone
+  boost: 15 # The multiplier of the player's flying speed when he passes through the checkpoint
+  1:
+    x: 33
+    y: 5
+    z: 8
+  2:
+    x: 61
+    y: 5
+    z: 8
+  3:
+    x: 89
+    y: 5
+    z: 8

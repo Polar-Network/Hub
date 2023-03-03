@@ -1,19 +1,47 @@
 plugins {
     id("java")
+    id("com.github.johnrengelman.shadow") version "7.1.0"
 }
 
 group = "net.polar"
-version = "1.0-SNAPSHOT"
+version = "1.0"
+
+//val folderAboveCurrent = File("$rootDir").parentFile!!
+//val testServer = File("${folderAboveCurrent.path}/TestingServers/hub").apply {
+//    if (!exists()) mkdirs()
+//}
+val testServer = File("$rootDir/test-server").apply {
+    if (!exists()) mkdirs()
+}
+
 
 repositories {
     mavenCentral()
+    maven("https://jitpack.io")
 }
 
 dependencies {
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.1")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.8.1")
+
+    implementation("com.github.Polar-Network:Polaroid:-SNAPSHOT")
+
 }
 
-tasks.getByName<Test>("test") {
-    useJUnitPlatform()
+tasks {
+    shadowJar {
+        archiveClassifier.set("")
+        archiveFileName.set("hub.jar")
+        manifest {
+            attributes(
+                "Main-Class" to "net.polar.Hub",
+            )
+        }
+        val file = this.archiveFile.get().asFile
+        doLast {
+            copy {
+                from(file)
+                into(testServer)
+            }
+        }
+    }
+
 }

@@ -1,0 +1,18 @@
+size: 5 # Rows of the inventory
+item:
+  material: "compass"
+  name: "<gold>Server Selector"
+  lore:
+        - "<gray>Click to open"
+        - "<gray>the server selector"
+
+# Everything else gets placed as filler
+inventory:
+  22:
+    material: "GRASS_BLOCK" # Material
+    name: "<green>Survival"
+    lore: # %online% and %max% are placeholders for the online and max players
+      - "<gray>Online: %online%/%max%"
+      - "<gray>Click to join"
+    server: "survival" # Server to sent to once clicked. This uses the Bungee Plugin Messaging Channel due to Minestom limitations
+    ping-server: "hypixel.net"

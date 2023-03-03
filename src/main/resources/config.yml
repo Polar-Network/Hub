@@ -1,0 +1,64 @@
+players-invisible-default: true
+server:
+  host: "0.0.0.0:25565"
+  max-players: 100 # 0 = no limit
+  default-gamemode: "ADVENTURE"
+  online-mode: true
+  brand: "Minestom"
+  proxy:
+    enabled: false
+    secret: "secret" # Velocity secret
+  # MOTD supports MiniMessage API https://docs.adventure.kyori.net/minimessage/api.html
+  # It will select a random line from the list
+  motd:
+    - "<gray>Welcome to <gold>MyServer<gray>!"
+    - "<gray>Join now and have fun!"
+  join-message: "<gold>Welcome %player% to <gray>MyServer<gold>!"
+  chat-message: "<red>You can't chat while in the lobby!"
+  schematic:
+    placement:
+      x: 0.0
+      y: 0.0
+      z: 0.0
+    name: "lobby.schem"
+    rotation: "NONE" # NONE, CLOCKWISE_90, CLOCKWISE_180, CLOCKWISE_270;
+
+double-jump:
+  enabled: true
+  cooldown: 0.5 # Seconds
+  multiplier: 200
+  velocity-y: 20
+  particles:
+    enabled: true
+    type: "explosion"
+    amount: 10
+    show-to-others: true # Show particles to other players or only to the player who jumped
+  sound:
+    enabled: true
+    type: "entity.dragon_fireball.explode"
+    volume: 1
+    pitch: 1
+
+# Indicates the position of the player when he joins the server
+spawn:
+  x: 0.0
+  y: 64.0
+  z: 0.0
+
+# Database configuration
+database:
+  host: "mongodb://localhost:27017"
+  name: "hub"
+  collection: "players"
+
+discord:
+  npc:
+    x: 10.0
+    y: 1.0
+    z: 10.0
+    yaw: 0.0
+    pitch: 0.0
+  holograms:
+    - "<blue>Discord"
+    - "<gold><bold>CLICK ME"
+  message: "<gray>Click <gold><click:open_url:https://discord.gg/123456><hover:show_text:'<gold>Click to join!'>here</click></gold><gray> to join our Discord!"
